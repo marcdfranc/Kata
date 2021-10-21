@@ -1,4 +1,5 @@
 ﻿using Applicattion.Baskets;
+using Applicattion.Core;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,7 @@ namespace Kata.Extensions
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddMediatR(typeof(Create).Assembly);
             return services;
         }
