@@ -1,0 +1,15 @@
+C:\sis\Kata\Persistence\bin\Debug\net5.0\Persistence.deps.json
+C:\sis\Kata\Persistence\bin\Debug\net5.0\Persistence.dll
+C:\sis\Kata\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+C:\sis\Kata\Persistence\bin\Debug\net5.0\Persistence.pdb
+C:\sis\Kata\Persistence\bin\Debug\net5.0\Domain.dll
+C:\sis\Kata\Persistence\bin\Debug\net5.0\Domain.pdb
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.csproj.AssemblyReference.cache
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.csproj.CopyComplete
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.dll
+C:\sis\Kata\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+C:\sis\Kata\Persistence\obj\Debug\net5.0\Persistence.pdb
