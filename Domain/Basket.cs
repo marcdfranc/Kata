@@ -13,6 +13,6 @@ namespace Domain
 
         public bool IsOpen { get; set; } = true;
 
-        // public ICollection<BasketItem> Products { get; set; }
+        public ICollection<BasketItem> Products { get; set; }
     }
 }
