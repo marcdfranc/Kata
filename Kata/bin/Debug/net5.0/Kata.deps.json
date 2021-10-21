@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Kata/1.0.0": {
         "dependencies": {
+          "Applicattion": "1.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.11",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.11",
@@ -731,6 +732,19 @@
         }
       },
       "System.Memory/4.5.3": {},
+      "Applicattion/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "MediatR": "9.0.0",
+          "Persistence": "1.0.0"
+        },
+        "runtime": {
+          "Applicattion.dll": {}
+        },
+        "compile": {
+          "Applicattion.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {}
@@ -2703,6 +2717,11 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "Applicattion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Domain/1.0.0": {
       "type": "project",

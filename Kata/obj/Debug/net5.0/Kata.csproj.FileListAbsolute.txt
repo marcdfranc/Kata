@@ -61,3 +61,5 @@ C:\sis\Kata\Kata\bin\Debug\net5.0\Persistence.pdb
 C:\sis\Kata\Kata\bin\Debug\net5.0\Domain.pdb
 C:\sis\Kata\Kata\bin\Debug\net5.0\Humanizer.dll
 C:\sis\Kata\Kata\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\sis\Kata\Kata\bin\Debug\net5.0\Applicattion.dll
+C:\sis\Kata\Kata\bin\Debug\net5.0\Applicattion.pdb
