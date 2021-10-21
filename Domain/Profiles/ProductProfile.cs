@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Profiles
 {
@@ -13,7 +9,8 @@ namespace Domain.Profiles
         public Guid ProductId { get; set; }
         public string Product { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }        
+        public decimal Price { get; set; }
+        public string Promotion { get; set; }
         public decimal Total { get; set; }
     }
 }

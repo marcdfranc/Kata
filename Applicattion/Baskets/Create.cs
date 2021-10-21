@@ -2,10 +2,7 @@
 using Domain;
 using MediatR;
 using Persistence;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,6 +27,12 @@ namespace Applicattion.Baskets
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
+                var openedBasket = _context.Baskets.FirstOrDefault(b => b.IsOpen);
+
+                openedBasket.IsOpen = false;
+
+                _context.Update(openedBasket);
+
                 _context.Add(request.Basket);
 
                 if (await _context.SaveChangesAsync() > 0)
