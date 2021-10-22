@@ -1,3 +1,4 @@
+using Kata.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,22 +17,20 @@ namespace Kata
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
+        private readonly IConfiguration _config;
+
+        public Startup(IConfiguration config)
+        {            
+            _config = config;
         }
 
-        public IConfiguration Configuration { get; }
+       
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kata", Version = "v1" });
-            });
+            services.AddApplicationsServices(_config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
