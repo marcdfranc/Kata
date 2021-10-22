@@ -21,6 +21,10 @@ namespace Kata.Extensions
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy", policy => policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("*"));
+            });
+
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddMediatR(typeof(Create).Assembly);
             return services;
