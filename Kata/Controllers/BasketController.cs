@@ -16,8 +16,13 @@ namespace Kata.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Basket basket)
+        public async Task<IActionResult> Create(string description)
         {
+            Basket basket = new Basket()
+            {
+                Description = description,
+            };
+
             return HandleResult(await Mediator.Send(new Create.Command { Basket = basket }));
         }
 

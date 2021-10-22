@@ -1,0 +1,129 @@
+<html>
+	<head>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		 <script>
+			var BASE_URL = "https://localhost:44300";
+		 </script>
+	</head>
+<body>
+	<h1>Kata</h1>
+	<input type="hidden" id="basketId" name="basketId" value=""/>
+	<h3><b>Basket: </b> <span id="basketName">teste</span></h3>
+	<div>
+		<label for="cbProduct">Products: </label>
+		<select id="cbProduct" name="cbProduct" style="width: 80px"></select>		
+	</div>
+	<div style="margin-top: 20px;">
+		<label for="txtQtd">Quantity: </label>
+		<input type="number" id="txtQtd" name="txtQtd" style="width: 80px" value="1" min="1" />
+		<input id="btAdd" type="button"  value="ADD" />
+	</div>
+	<table id="tbProducts" border="1" style="margin-top: 20px;">
+		<thead>
+			<tr>
+				<th>Item SKU</th>
+				<th>Unit Price</th>
+				<th>Promotion</th>
+				<th>Qtd.</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+	<div style="margin-top: 20px;">
+		<label for="txtNew">Description: </label>
+		<input type="text" id="txtNew" name="txtNew" style="width: 80px"   />
+		<input  id="btCheckout" type="button" value="Checkout" />
+		
+	</div>
+
+	<h2>Checkout</h2>
+
+	<script>
+		$(document).ready(function() {
+			getProducts();
+			getBasket();
+			
+			$('#btAdd').click(function (e) {
+				e.preventDefault();
+				addProduct();
+			});
+
+			$('#btCheckout').click(function (e) {
+				e.preventDefault();
+				if (!$('#txtNew').val()) {
+					alert("Description is required!!");
+				} else {
+					finish($('#txtNew').val());
+				}
+			});
+
+		});
+		
+		function getBasket() {
+			$.get(BASE_URL + "/api/Basket", function (response) {
+				 console.log(response);
+				 $("#tbProducts tbody").empty();
+				
+				 $("#basketName").empty().append(response.description);
+
+				 $("#basketId").val(response.id);
+
+				response.products.forEach(element => {
+					var row = "<tr>"
+						+ "<td>" + element.product + "</td>"
+						+ "<td>" + element.price + "</td>"
+						+ "<td>" + (element.promotion?? "") + "</td>"						
+						+ "<td>" + element.quantity + "</td>"						
+						+ "<td>" + element.total + "</td></tr>";
+
+					$("#tbProducts tbody").append(row);
+				});
+
+			});
+		}
+
+		function getProducts() {
+			$.get(BASE_URL + "/api/Product", function (response) {				
+				
+				$("#cbProduct").empty();
+				
+				response.forEach(element => {
+					$("#cbProduct").append("<option value='" + element.id + "'>" + element.name + "</option>");
+				});
+
+			});
+		}
+
+		function addProduct() {
+
+			$.ajax({
+				method: "POST",
+				url: BASE_URL + "/api/Basket/add",
+				dataType: "json",
+				contentType : 'application/json',
+				data: JSON.stringify({
+					productId: $("#cbProduct").val(),
+					basketId: $("#basketId").val(),
+					quantity: $("#txtQtd").val()
+				})
+			})
+			.done(function( msg ) {
+				$("#txtQtd").val(1)
+				getBasket();
+			});
+		}
+
+		function finish(description) {
+			$.post(BASE_URL + "/api/Basket?description=" + encodeURI(description), function name(params) {
+				$("#txtQtd").val(1);
+				$('#txtNew').val("");
+				getBasket();
+				alert("the status of closed baskets is not implemented yet.");
+			});
+		}
+	</script>
+</body>
+</html>
